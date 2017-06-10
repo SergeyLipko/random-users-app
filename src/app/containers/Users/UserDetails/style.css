@@ -1,0 +1,28 @@
+.user-details-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.user-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-details-table {
+    margin: 20px 0;
+}
+
+.user-details-table td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+}
+
+.user-details-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+

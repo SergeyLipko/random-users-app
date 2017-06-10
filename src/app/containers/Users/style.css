@@ -1,0 +1,33 @@
+:root {
+    --button-with: 80px;
+    --button-border-color: #319fcc;
+}
+
+.page-users {
+    padding-bottom: 35px;
+}
+
+.users-list {
+    max-width: 40%;
+    margin: 25px auto 25px;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.load-more-button {
+    width: var(--button-with);
+    height: var(--button-with);
+    font-size: 14px;
+    background-color: transparent;
+    border-radius: 100%;
+    border: 1px solid var(--button-border-color);
+    cursor: pointer;
+    outline: none;
+}
+.load-more-button:hover {
+    color: var(--button-border-color);
+}
