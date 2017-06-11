@@ -5,6 +5,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 
+import WithNotification from '../containers/Notification';
 import Home from '../containers/Home';
 import Users from '../containers/Users';
 
@@ -25,25 +26,27 @@ export default class AppRouter extends React.Component {
     return (
     <MuiThemeProvider>
       <Provider store={store}>
-        <Router>
-          <div className="app">
-            <div className="navigation-wrapper">
-              <ul className="app-navigation-list">
-                <RenderLink url="/" name="Home"/>
-                <RenderLink url="/users" name="Users"/>
-              </ul>
-            </div>
+        <WithNotification>
+          <Router>
+            <div className="app">
+              <div className="navigation-wrapper">
+                <ul className="app-navigation-list">
+                  <RenderLink url="/" name="Home"/>
+                  <RenderLink url="/users" name="Users"/>
+                </ul>
+              </div>
 
-            <div className="app-wrapper">
-              <div className="app-content-wrapper">
-                <div className="app-content">
-                  <Route exact path={`/`} component={Home}/>
-                  <Route path={`/users`} component={Users}/>
+              <div className="app-wrapper">
+                <div className="app-content-wrapper">
+                  <div className="app-content">
+                    <Route exact path={`/`} component={Home}/>
+                    <Route path={`/users`} component={Users}/>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Router>
+          </Router>
+        </WithNotification>
       </Provider>
     </MuiThemeProvider>
     );

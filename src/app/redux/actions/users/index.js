@@ -1,3 +1,5 @@
+import { showNotification } from '../notification';
+
 export const setUsers = users => ({
   type: 'SET_USERS',
   users
@@ -21,8 +23,10 @@ export const loadUsers = page => dispatch => {
       dispatch(stopLoading());
     })
     .catch(err => {
-      // TODO make some action for displaying en error
-      console.error('Error when loading users', err);
       dispatch(stopLoading());
+      dispatch(showNotification({
+        notificationType: 'ERROR',
+        notificationMessage: err
+      }))
     });
 };

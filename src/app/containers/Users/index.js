@@ -13,18 +13,7 @@ const renderUserItem = (data, key) =>
     <UserItem data={data}/>
   </NavLink>;
 
-const mapStateToProps = state => ({
-  users: state.users.usersList,
-  isLoading: state.users.isLoading,
-});
-
-const mapDispatchToProps = dispatch => ({
-  loadUsersList: page => dispatch(loadUsers(page)),
-});
-
-// TODO load data on pagination just on scroll
-@connect(mapStateToProps, mapDispatchToProps)
-export default class Users extends React.Component {
+class Users extends React.Component {
   state = {
     usersPageState: 1,
     modalIsOpen: true
@@ -71,3 +60,15 @@ export default class Users extends React.Component {
     )
   };
 }
+
+const mapStateToProps = state => ({
+  users: state.users.usersList,
+  isLoading: state.users.isLoading,
+});
+
+const mapDispatchToProps = dispatch => ({
+  loadUsersList: page => dispatch(loadUsers(page)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users);
+
